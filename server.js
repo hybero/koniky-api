@@ -1,6 +1,5 @@
 const express = require('express');
 const logger = require('morgan');
-const tanks = require('./routes/tanks') ;
 const users = require('./routes/users');
 const bodyParser = require('body-parser');
 const mongoose = require('./config/mongodb'); //database configuration

@@ -16,7 +16,7 @@ app.use(logger('dev'));
 app.use(bodyParser.urlencoded({extended: false}));
 
 app.get('/', function(req, res){
-    res.json({"message" : "REST API"});
+    res.json({"message" : "Koniky REST API"});
 });
 
 // public route
@@ -55,7 +55,7 @@ app.use(function(err, req, res, next) {
     if(err.status === 404)
         res.status(404).json({message: "Not found"});
     else
-        res.status(500).json({message: "Something looks wrong :( !!!"});
+        res.status(500).json({message: "Something looks wrong :("});
 });
 
 app.listen(3000, function(){

@@ -38,4 +38,14 @@ module.exports = {
         }
     },
 
+    deleteById: function(req, res, next) {
+        userModel.findByIdAndRemove(req.params.userId, function(err, userInfo){
+            if(err) {
+                next(err);
+            } else {
+                res.json({status: "success", message: "user deleted successfully", data: null});
+            }
+        });
+    },
+
 }

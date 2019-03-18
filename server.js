@@ -57,6 +57,7 @@ app.use(function(err, req, res, next) {
         res.status(500).json({message: "Something looks wrong :("});
 });
 
-app.listen(3000, function(){
-    console.log('Node server listening on port 3000');
+let lPort = 8087;
+app.listen(lPort, function(){
+    console.log('Node server listening on port ' + lPort);
 });

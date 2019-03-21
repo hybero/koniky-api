@@ -22,7 +22,7 @@ app.get('/', function(req, res){
 app.use('/users', users);
 
 // private route
-//app.use('/tanks', validateUser, tanks);
+app.use('/animals', validateUser, animals);
 
 app.get('/favicon.ico', function(req, res) {
     res.sendStatus(204);
@@ -59,5 +59,5 @@ app.use(function(err, req, res, next) {
 
 let lPort = 8087;
 app.listen(lPort, function(){
-    console.log('Node server listening on port ' + lPort);
+    console.log('Koniky Node server listening on port ' + lPort);
 });

@@ -57,7 +57,7 @@ module.exports = {
     },
 
     create: function(req, res, next) {
-        if (typeof req.body.type !== 'undefined' && typeof req.body.capacity !== 'undefined' && typeof req.body.status !== 'undefined') {
+        if (typeof req.body.name !== 'undefined' && typeof req.body.animal_type !== 'undefined' && typeof req.body.gender !== 'undefined' && typeof req.body.age !== 'undefined') {
             animalModel.create({name: req.body.name, animal_type: req.body.animal_type, gender: req.body.gender, age: req.body.age, color: req.body.color }, function (err, result) {
                 if(err) {
                     next(err);
@@ -66,7 +66,7 @@ module.exports = {
                 }
             });
         } else {
-            res.json({status:"error", message: "type, capacity and status is required", data:null});
+            res.json({status:"error", message: "name, animal_type, gender and age is required", data:null});
         }
     },
 

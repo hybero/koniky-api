@@ -6,6 +6,7 @@ router.get('/', animalEventController.getAll);
 router.post('/', animalEventController.create);
 router.get('/:animalEventId', animalEventController.getById);
 router.get('/animal/:animalEventId', animalEventController.getByAnimalId);
+router.get('/user/:userId', animalEventController.getByUserId);
 router.put('/:animalEventId', animalEventController.updateById);
 router.delete('/:animalEventId', animalEventController.deleteById);
 

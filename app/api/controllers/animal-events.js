@@ -41,7 +41,7 @@ module.exports = {
                     next(err);
                 } else {
                     for(let animalEvent of animalEvents) {
-                        animalEventsList.push({id: animalEvent._id, name: animalEvent.name, released_on: animalEvent.released_on});
+                        animalEventsList.push({id: animalEvent._id, user_id: animalEvent.user_id, animal_id: animalEvent.animal_id, label: animalEvent.label, event_date: animalEvent.event_date, event_type: animalEvent.event_type, costs: animalEvent.costs});
                     }
                     res.json({status: "success", message: "animalEvents list found", data: {animalEvents: animalEventsList}});
                 }
@@ -52,7 +52,7 @@ module.exports = {
     },
 
     updateById: function(req, res, next) {
-        animalEventModel.findByIdAndUpdate(req.params.animalEventId, {name:req.body.name}, function(err, animalEventInfo){
+        animalEventModel.findByIdAndUpdate(req.params.animalEventId, {user_id: req.body.user_id, animal_id: req.body.animal_id, label: req.body.label, event_date: req.body.event_date, event_type: req.body.event_type, costs: req.body.costs}, function(err, animalEventInfo){
             if(err) {
                 next(err);
             } else {
@@ -72,8 +72,8 @@ module.exports = {
     },
 
     create: function(req, res, next) {
-        if (typeof req.body.type !== 'undefined' && typeof req.body.capacity !== 'undefined' && typeof req.body.status !== 'undefined') {
-            animalEventModel.create({name: req.body.name, released_on: req.body.released_on }, function (err, result) {
+        if (typeof req.body.user_id !== 'undefined' && typeof req.body.animal_id !== 'undefined' && typeof req.body.label !== 'undefined' && typeof req.body.event_date !== 'undefined' && typeof req.body.event_type !== 'undefined') {
+            animalEventModel.create({user_id: req.body.user_id, animal_id: req.body.animal_id, label: req.body.label, evnt_date: req.body.evnt_date, event_type: req.body.event_type, costs: req.body.costs }, function (err, result) {
                 if(err) {
                     next(err);
                 } else {

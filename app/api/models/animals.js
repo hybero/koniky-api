@@ -19,15 +19,15 @@ const animalSchema = new Schema({
         trim: true,
         required: true,
     },
-    capacity: {
-        type: Number,
+    age: {
+        type: String,
         trim: true,
         required: true,
     },
-    status: {
-        type: Number,
+    notes: {
+        type: String,
         trim: true,
-        required: true,
+        required: false,
     },
 });
 

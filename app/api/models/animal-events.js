@@ -9,6 +9,11 @@ const animalEventSchema = new Schema({
         trim: true,
         required: true,
     },
+    animal_id: {
+        type: Number,
+        trim: true,
+        required: true,
+    },
     label: {
         type: String,
         trim: true,

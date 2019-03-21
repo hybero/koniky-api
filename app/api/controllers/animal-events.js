@@ -17,11 +17,26 @@ module.exports = {
         }
     },
 
+    getByAnimalId: function(req, res, next) {
+        //console.log(req.body);
+        if (typeof req.params.animalId !== 'undefined') {
+            animalModel.find({animal_id: req.params.animalId}, function(err, animalEventInfo){
+                if(err) {
+                    next(err);
+                } else {
+                    res.json({status: "success", message: "animal event found", data: {animalEvents: animalEventInfo}});
+                }
+            });
+        } else {
+            res.json({status:"error", message: "animalId is required parameter", data:null});
+        }
+    },
+
     getAll: function(req, res, next) {
         let animalEventsList = [];
         //console.log(req);
-        //if (typeof req.params.animalEventId !== 'undefined') {
-            animalEventModel.find({}, function(err, animalEvents){
+        if (typeof req.params.userId !== 'undefined') {
+            animalEventModel.find({user_id: req.params.userId}, function(err, animalEvents){
                 if(err) {
                     next(err);
                 } else {
@@ -31,9 +46,9 @@ module.exports = {
                     res.json({status: "success", message: "animalEvents list found", data: {animalEvents: animalEventsList}});
                 }
             });
-        //} else {
-        //    res.json({status:"error", message: "animalEvent_id is required parameter", data:null});
-        //}
+        } else {
+            res.json({status:"error", message: "user_id is required parameter", data:null});
+        }
     },
 
     updateById: function(req, res, next) {

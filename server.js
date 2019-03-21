@@ -2,6 +2,7 @@ const express = require('express');
 const logger = require('morgan');
 const users = require('./routes/users');
 const animals = require('./routes/animals');
+const animalEvents = require('./routes/animal-events');
 const bodyParser = require('body-parser');
 const mongoose = require('./config/mongodb'); //database configuration
 var jwt = require('jsonwebtoken');
@@ -24,6 +25,8 @@ app.use('/users', users);
 
 // private route
 app.use('/animals', validateUser, animals);
+
+app.use('/animalevents', validateUser, animalEvents);
 
 app.get('/favicon.ico', function(req, res) {
     res.sendStatus(204);

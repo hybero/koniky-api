@@ -1,6 +1,7 @@
 const express = require('express');
 const logger = require('morgan');
 const users = require('./routes/users');
+const animals = require('./routes/animals');
 const bodyParser = require('body-parser');
 const mongoose = require('./config/mongodb'); //database configuration
 var jwt = require('jsonwebtoken');

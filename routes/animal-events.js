@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const animalEventEventController = require('../app/api/controllers/animal-events');
+const animalEventController = require('../app/api/controllers/animal-events');
 
 router.get('/', animalEventController.getAll);
 router.post('/', animalEventController.create);

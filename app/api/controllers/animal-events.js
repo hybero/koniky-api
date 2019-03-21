@@ -32,7 +32,7 @@ module.exports = {
         }
     },
 
-    getAll: function(req, res, next) {
+    getByUserId: function(req, res, next) {
         let animalEventsList = [];
         //console.log(req);
         if (typeof req.params.userId !== 'undefined') {

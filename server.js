@@ -4,6 +4,7 @@ const users = require('./routes/users');
 const animals = require('./routes/animals');
 const animalEvents = require('./routes/animal-events');
 const healths = require('./routes/healths');
+const feedings = require('./routes/feedings');
 const bodyParser = require('body-parser');
 const mongoose = require('./config/mongodb'); //database configuration
 var jwt = require('jsonwebtoken');
@@ -31,6 +32,8 @@ app.use('/animalevents', validateUser, animalEvents);
 
 app.use('/healths', validateUser, healths);
 
+app.use('/feedings', validateUser, feedings);
+
 app.get('/favicon.ico', function(req, res) {
     res.sendStatus(204);
 });
@@ -41,7 +44,7 @@ function validateUser(req, res, next) {
           res.json({status:"error", message: err.message, data:null});
         }else{
           // add user id to request
-          req.body.userId = decoded.id;
+          req.body.user_id = decoded.id;
           next();
         }
     });
@@ -66,5 +69,5 @@ app.use(function(err, req, res, next) {
 
 let lPort = 8087;
 app.listen(lPort, function(){
-    console.log('Koniky Node server listening on port ' + lPort);
+    console.log('Koniky API Node server listening on port ' + lPort);
 });

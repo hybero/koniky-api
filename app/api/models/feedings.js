@@ -14,6 +14,11 @@ const feedingSchema = new Schema({
         trim: true,
         required: true,
     },
+    feeding_type: {
+        type: String,
+        trim: true,
+        required: true,
+    },
     food_id: {
         type: String,
         trim: true,

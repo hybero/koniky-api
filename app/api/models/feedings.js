@@ -29,7 +29,7 @@ const feedingSchema = new Schema({
         trim: true,
         required: true,
     },
-    time: {
+    date: {
         type: Date,
         trim: true,
         required: true,

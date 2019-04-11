@@ -5,6 +5,7 @@ const animals = require('./routes/animals');
 const animalEvents = require('./routes/animal-events');
 const healths = require('./routes/healths');
 const feedings = require('./routes/feedings');
+const foods = require('./routes/foods');
 const bodyParser = require('body-parser');
 const mongoose = require('./config/mongodb'); //database configuration
 var jwt = require('jsonwebtoken');
@@ -33,6 +34,8 @@ app.use('/animalevents', validateUser, animalEvents);
 app.use('/healths', validateUser, healths);
 
 app.use('/feedings', validateUser, feedings);
+
+app.use('/foods', validateUser, foods);
 
 app.get('/favicon.ico', function(req, res) {
     res.sendStatus(204);
